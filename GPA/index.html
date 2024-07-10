@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  .circle-container {
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+		width: 50%;
+		height:100px;
+       position: relative;
+	   overflow-x: auto; /* Enable horizontal scrolling */
+       white-space: nowrap;
+       margin-left:140px;	   /* Prevent circles from wrapping to new lines */
+    }
+    .circle {
+		display: flex; /* Ensure each circle is displayed in a block */
+		margin-right: 10px; /* Optional: Add margin between circles */
+		text-align: center;
+        width: 70%; /* Adjust size of the circle */
+        height: 70%; /* Adjust size of the circle */
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .circle img {
+         width: 100%; /* Adjust image size as needed */
+        height: 100/* Adjust image size as needed */
+       cursor: pointer;
+    }
+	.password-field {
+	    
+        width: 100%; /* Full width inside container */
+        padding: 10px; 
+		border-color: #555555; /* Change border color on focus to green */
+        box-shadow: 0 0 5px rgba(128, 128, 128, 0.5);
+        border-top: 1px solid #ccc; /* Border on top of input */
+        font-size: 16px;
+        outline: none; /* Remove outline on focus */
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+
+    /* Style for the password field when focused */
+    .password-field:focus {
+        border-color: #007bff; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+    }
+	.clear-btn{
+	  width:100px;
+	  height:20px;
+	}
+	.clear-btn:hover,
+    .clear-btn:focus {
+        color: #495057; /* Hover/focus text color */
+    }
+	.myfield{
+	   margin-top:70px;
+     	display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center items horizontally */
+        align-items: center;
+		height:50px;
+       position: relative;
+	}
+	.myfield input{
+	    margin:20px;
+	    box-sizing: border-box;
+		height: 100%;
+		width: 80%;
+		border: 1px solid var(--inputBorderColor);
+		border-radius: 5px;
+		padding-left: 15px;
+		margin: 0 1px;
+		font-size: 18px;
+		transition: border-color 150ms ease;
+	}
+	.myfield button{
+	    box-sizing: border-box;
+		height: 100%;
+		width: 10%;
+		border: 1px solid var(--inputBorderColor);
+		border-radius: 5px;
+		padding: 5px;
+		margin: 0 1px;
+		font-size: 18px;
+		transition: border-color 150ms ease;
+}
+</style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multistep form</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <body>
+        <div class="container">
+            <header>Signup Form</header>
+            <div class="progress-bar">
+                <div class="step">
+                    <p>Name</p>
+                    <div class="bullet">
+                        <span>1</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>Contact</p>
+                    <div class="bullet">
+                        <span>2</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>Birth</p>
+                    <div class="bullet">
+                        <span>3</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>Login Info</p>
+                    <div class="bullet">
+                        <span>4</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+				 <div class="step">
+                    <p>Graphical Password Step 1</p>
+                    <div class="bullet">
+                        <span>5</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                <div class="step">
+                    <p>Graphical Password Step 2</p>
+                    <div class="bullet">
+                        <span>6</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+            </div>
+            <div class="form-outer">
+<form action="PHPFile.php" method="GET">
+    <div class="page slide-page">
+        <div class="title">Basic Info:</div>
+        <div class="field">
+            <div class="label">First Name</div>
+            <input type="text" name="first_name" value="test" required />
+        </div>
+        <div class="field">
+            <div class="label">Last Name</div>
+            <input type="text" name="last_name" value="testLast" required />
+        </div>
+        <div class="field">
+            <button class="firstNext next">Next</button>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="title">Contact Info:</div>
+        <div class="field">
+            <div class="label">Email Address</div>
+            <input type="text" name="email" value="a" required />
+        </div>
+        <div class="field">
+            <div class="label">Phone Number</div>
+            <input type="number" name="phone_number" value="2" required />
+        </div>
+        <div class="field btns">
+            <button class="prev-1 prev">Previous</button>
+            <button class="next-1 next">Next</button>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="title">Date of Birth:</div>
+        <div class="field">
+            <div class="label">Date</div>
+            <input type="date" name="date_of_birth" required />
+        </div>
+        <div class="field">
+            <div class="label">Gender</div>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="field btns">
+            <button class="prev-4 prev">Previous</button>
+            <button class="next-4 next">Next</button>
+        </div>
+    </div>
+	
+	
+
+    <div class="page">
+        <div class="title">Login Details:</div>
+        <div class="field">
+            <div class="label">Username</div>
+            <input type="text" name="username" value="test" required />
+        </div>
+        <div class="field">
+            <div class="label">Password</div>
+            <input type="password" name="password" value="test" required />
+        </div>
+      <div class="field btns">
+            <button class="prev-5 prev">Previous</button>
+            <button class="next-5 next">Next</button>
+        </div>
+        
+    </div>
+	<div class="page">
+        <div class="title">Graphical Password Step 1</div>
+		<div class="field">
+			<div class="circle-container">
+				<div class="circle" id="circle_id">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Red_Circle%28small%29.svg/768px-Red_Circle%28small%29.svg.png"  onclick="addME(this)" value="red" alt="red">
+				</div>
+				<div class="circle" id="circle_id">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZT-ArSroDjFz4zQoU1vXnY1g2rhozPURRQ&s"  onclick="addME(this)" value="green" alt="green">
+				</div>
+				<div class="circle" id="circle_id">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVaIb71lm3NCrg8Kn_j6iOQSqwmpRJWLjPw&s" onclick="addME(this)" value="blue" alt="blue">
+				</div>
+			</div>
+			</div>	
+			<div class="myfield">
+				<input type="Password" class="password-field" id="passwordFieldColor" name="passwordFieldColor" readonly required>
+				<button type="button" class="clear-btn" onclick="clearPasswordField()" title="Clear Password">&times;</button>
+			</div>
+			
+            <div class="field btns">
+            <button class="prev-6 prev">Previous</button>
+            <button class="next-6 next">Next</button>
+        </div>		
+        
+    </div>
+	<div class="page">
+        <div class="title">Graphical Password Step 2</div>
+        <div class="field">
+            <div class="label">Category</div>
+            <select name="ownfield" required>
+						<option value="football">Football</option>
+                        <option value="basketball">Basketball</option>
+                         <option value="soccer">Soccer</option>
+						<option value="tennis">Tennis</option>
+						<option value="volleyball">Volleyball</option>
+						<option value="swimming">Swimming</option>
+						<option value="cricket">Cricket</option>
+						<option value="golf">Golf</option>
+						<option value="other">Other</option>
+            </select>
+        </div>
+      
+           <div class="field btns">
+            <button class="prev-5 prev">Previous</button>
+            <button type="submit" class="submit">Submit</button>
+        </div>
+    </div>
+	<script>
+	   function addME(Color_img){
+	    var value=document.getElementById('passwordFieldColor').value ;
+	   if (value.includes(Color_img.alt)) {
+			 value = value.replace(Color_img.alt, '');
+			 Color_img.parentNode.style.border="none";
+		} else {
+		   Color_img.parentNode.style.border="2px solid black";
+	      	value=value+Color_img.alt;
+		}
+		document.getElementById('passwordFieldColor').value=value;
+	   
+  } 
+      function clearPasswordField() {
+           document.getElementById('passwordFieldColor').value = '';
+		   document.getElementById('circle_id').style.border="none";
+		   
+        }
+  </script>
+</form>
+
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
